@@ -4,6 +4,11 @@ so that the db can be deployed in any environment.
 
 you will need docker pre-installed on your computer before u can proceed.
 
+### youtube guides
+- [Learn how to use postgres sql with docker](https://www.youtube.com/watch?v=A8dErdDMqb0)
+- [Docker with persistent storage](https://www.youtube.com/watch?v=G3gnMSyX-XM&t=1s)
+- [Docker Volumes Setup](https://www.youtube.com/watch?v=G-5c25DYnfI)
+
 **We will be using postgres database for this project.**
 
 ## Programs to download

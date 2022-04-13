@@ -34,4 +34,9 @@ How to get started using the database
 docker-compose up
 ```
 
+## shutdown the db_server
+```bash
+docker-compose down
+```
+
 Thats it, 3 steps to get started using this postgres

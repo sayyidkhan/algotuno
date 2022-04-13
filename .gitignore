@@ -8,6 +8,10 @@ bin-release/
 .settings/
 *.DS_Store
 
+# postgres DB
+/docker_config/data/*
+/docker_config/data/
+
 # Executables
 *.swf
 *.air

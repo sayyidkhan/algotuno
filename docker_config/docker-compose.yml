@@ -1,0 +1,16 @@
+version: '3.1'
+
+services:
+
+  mongo:
+    container_name: postgres-dev
+    image: 12-alpine
+    restart: always
+    volumes:
+      - ./data:/data/db
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=test
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=demo

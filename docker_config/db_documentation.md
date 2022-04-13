@@ -49,9 +49,9 @@ docker-compose down
 ## Database Credentials
 | Syntax      | Info to Enter |
 | ----------- | ------------- |
-| Username    | postgres      |
-| Password    | secret.       |
-| Database    | demo.         |
+| Username    | test          |
+| Password    | secret        |
+| Database    | demo          |
 | Host        |localhost      |
 
 ## for viewing of DB using GUI (optional)

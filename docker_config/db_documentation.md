@@ -56,4 +56,4 @@ docker-compose down
 
 ## for viewing of DB using GUI (optional)
 
-
+<img width="600" alt="Screenshot 2021-10-04 at 3 56 18 PM" src="https://user-images.githubusercontent.com/22993048/135814703-e9031003-a9f2-4520-bb45-08add39538fb.png">

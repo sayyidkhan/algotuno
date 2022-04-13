@@ -6,7 +6,7 @@ you will need docker pre-installed on your computer before u can proceed.
 
 **We will be using postgres database for this project.**
 
-#### Programs to download
+### Programs to download
 Containerisation technology:
 - Docker
 
@@ -14,7 +14,7 @@ Choose either one (Database viewer):
 - Dbeaver
 - Pgadmin
 
-#### MongoDB version used
+### MongoDB version used
 - version used: 12-alpine
 
 command to pull from docker repository

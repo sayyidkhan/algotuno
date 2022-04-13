@@ -46,6 +46,14 @@ Thats it, 3 steps to get started using this postgres
 docker-compose down
 ```
 
+## Database Credentials
+| Syntax      | Info to Enter |
+| ----------- | ------------- |
+| Username    | postgres      |
+| Password    | secret.       |
+| Database    | demo.         |
+| Host        |localhost      |
+
 ## for viewing of DB using GUI (optional)
 
 

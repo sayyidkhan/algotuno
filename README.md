@@ -1,4 +1,5 @@
 # algotuno
+** this repository its emphasis is to store the codes for backend AI **
 
 ## Application Architecture
 

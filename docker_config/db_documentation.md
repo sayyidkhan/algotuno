@@ -26,9 +26,9 @@ docker pull postgres:12-alpine
 
 How to get started using the database
 
-ensure docker is installed on your computer
-open a terminal in the current directory
-run this command in this current directory of this file
+1. ensure docker is installed on your computer
+2. open a terminal in the current directory
+3. run this command in this current directory of this file
 
 ```bash
 docker-compose up

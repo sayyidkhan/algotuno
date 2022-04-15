@@ -17,4 +17,5 @@
    ```bash
    ijsinstall
    ```
+   > so long you dont see any error message popping out, it is considered a successful install
 5. 

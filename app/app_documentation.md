@@ -24,4 +24,6 @@
 1. open the anaconda navigator
 2. select jupyter notebook option in the main dashboard
    <img width="1506" alt="Screenshot 2022-04-15 at 4 08 16 PM" src="https://user-images.githubusercontent.com/22993048/163544137-bbc9dfbf-8943-462c-8d38-2ad6b80d3eb2.png">
-3. 
+3. if installation of `node.js` and `ijsinstall` is successful, then you will be able to run node.js in jupyter notebook, otherwise you can only install python3
+   <img width="1152" alt="Screenshot 2022-04-15 at 4 06 11 PM" src="https://user-images.githubusercontent.com/22993048/163544474-ceab9b01-7ef8-44be-8ced-b72a59ceb109.png">
+

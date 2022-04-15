@@ -11,3 +11,10 @@
    ```bash
    npm i -g ijavascript 
    ```
+4. restart your terminal (close and open it again)
+   - then run this in the command line
+   - for windows users unable to run this, your environment variables does not have the NODE.js path set
+   ```bash
+   ijsinstall
+   ```
+5. 

@@ -18,4 +18,10 @@
    ijsinstall
    ```
    > so long you dont see any error message popping out, it is considered a successful install
-5. 
+
+## How to open jupyter notebook
+
+1. open the anaconda navigator
+2. select jupyter notebook option in the main dashboard
+<img width="1506" alt="Screenshot 2022-04-15 at 4 08 16 PM" src="https://user-images.githubusercontent.com/22993048/163544137-bbc9dfbf-8943-462c-8d38-2ad6b80d3eb2.png">
+3. 

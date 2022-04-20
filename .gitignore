@@ -12,6 +12,10 @@ bin-release/
 /docker_config/data/*
 /docker_config/data/
 
+# prevent node_modules to be uploaded to master branch
+/app/node_modules/*
+/app/node_modules/
+
 # Executables
 *.swf
 *.air

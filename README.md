@@ -12,5 +12,6 @@ the database & database configuration is stored in the docker_config folder. ref
 ![backend_ai](https://user-images.githubusercontent.com/22993048/163203068-f0c59ef1-ff5d-47d0-bad2-fcc63ee8faa8.jpg)
 
 
-AN UPDATE IS DONE at 10:99PM
+AN UPDATE IS DONE at 10:40pM
 
+VK testing at 160422 1318hrs

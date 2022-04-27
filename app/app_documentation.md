@@ -36,6 +36,7 @@ cli-pie
 cli-chart
 ascii-chart
 asciichart
+simple-ascii-chart
 
 #### NOT so good ones
 terminal-bar

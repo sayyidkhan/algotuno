@@ -16,6 +16,7 @@
     "ervy": "^1.0.7",
     "fast-csv": "^4.3.6",
     "fs": "^0.0.1-security",
+    "fs-extra": "^10.1.0",
     "ijavascript-plotly": "^0.0.1",
     "ipychart": "^0.4.0",
     "nodeplotlib": "^1.0.1",

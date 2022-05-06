@@ -1,3 +1,4 @@
+// https://dev.to/ramonak/javascript-how-to-access-the-return-value-of-a-promise-object-1bck
 const fs = require('fs-extra');
 
 const readJsonFile = async (file_directory) => {

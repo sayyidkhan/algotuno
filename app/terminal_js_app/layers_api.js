@@ -42,7 +42,7 @@ async function train() {
 
     for (let i = 0; i < 1000; i++) {
         const config = {
-            shuffle : true,
+            shuffle: true,
             epochs: 10,
         };
         const response = await model.fit(xs, ys, config);

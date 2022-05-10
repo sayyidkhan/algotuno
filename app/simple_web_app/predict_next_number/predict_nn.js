@@ -13,6 +13,16 @@
 const sequenceLength = 10;
 const stretchLengthThreshold = 4;
 
+const get_ddmmyyyy = () => {
+    return new Date()
+        .toISOString()
+        .split("").reverse().join("")
+        .split(".")[1]
+        .split("").reverse().join("")
+        .replace(/-/g,"_")
+        .replace(/:/g,"_");
+};
+
 // Generates sequences consisting of 0 and 1 and the associated 0-1 labels.
 //
 // The sequences and labels follow the pattern described above.
@@ -92,21 +102,13 @@ async function train() {
     const [trainSequences, trainLabels] = generateDataset(numTrainExamples, 10);
 
     console.log('Training model...');
-
+    await model.save("downloads://my_model");
 
     // Memory clean up: Dispose the training data.
     trainSequences.dispose();
     trainLabels.dispose();
 }
 
-const get_ddmmyyyy = () => {
-    return new Date()
-        .toISOString()
-        .split("").reverse().join("")
-        .split(".")[1]
-        .split("").reverse().join("")
-        .replace(/-/g,"_")
-        .replace(/:/g,"_");
-};
+
 
 document.getElementById('start-training').addEventListener('click', train);

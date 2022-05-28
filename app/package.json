@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "jupyter-tensorflow-nodejs-examples",
   "version": "0.1.0",
   "description": "",
@@ -12,6 +13,7 @@
     "@tensorflow/tfjs-node": "latest",
     "asciichart": "^1.5.25",
     "chart.js": "^3.7.1",
+    "clone-deep": "^4.0.1",
     "csv-parser": "^3.0.0",
     "ervy": "^1.0.7",
     "fast-csv": "^4.3.6",

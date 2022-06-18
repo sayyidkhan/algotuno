@@ -24,7 +24,7 @@ const display_model_summary = false;
 let extracted_stock_data = get_stock_data_from_fs(stock_data);
 const training_dataset_2018 = get_training_and_labelled_data_from_stock(extracted_stock_data, 2018, window);
 const validation_dataset_2019 = get_training_and_labelled_data_from_stock(extracted_stock_data, 2019, window);
-console.log(validation_dataset_2019.original_xs_data);
+console.log(validation_dataset_2019.original_ys_data);
 const test_dataset_2020 = get_training_and_labelled_data_from_stock(extracted_stock_data, 2020, window);
 
 // 2. load the neural network model

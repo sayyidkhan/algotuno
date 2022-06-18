@@ -11,19 +11,7 @@
   },
   "dependencies": {
     "@tensorflow/tfjs-node": "latest",
-    "asciichart": "^1.5.25",
-    "chart.js": "^3.7.1",
-    "clone-deep": "^4.0.1",
-    "csv-parser": "^3.0.0",
-    "ervy": "^1.0.7",
-    "fast-csv": "^4.3.6",
-    "fs": "^0.0.1-security",
-    "fs-extra": "^10.1.0",
-    "ijavascript-plotly": "^0.0.1",
-    "ipychart": "^0.4.0",
     "lodash": "^4.17.21",
-    "nodeplotlib": "^1.0.1",
-    "plotly-notebook-js": "^0.1.2",
-    "stocksocket": "^2.1.2"
+    "nodeplotlib": "^1.0.1"
   }
 }

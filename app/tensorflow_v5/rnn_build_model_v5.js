@@ -5,7 +5,7 @@ import {get_model_results, visualiseGraphFromModelResults} from "./toolsets/disp
 /*** variables ***/
 const stock_name = 'amcr';
 const _dir_to_save_file = `file://tf_models/${stock_name}`;
-const stock_data = './datasets/app_price_latest.json';
+const stock_data = `./datasets/${stock_name}_price_latest.json`;
 const window = 4; // every 2 weeks (each whole no represent every week)
 const weeks_to_predict = 4; // how many weeks to predict into the future
 const epoch = 5000; // no of times to train

@@ -10,8 +10,8 @@ function get_stock_data_from_fs(_dir) {
         /*
         used to get the stock data from the file system
          */
-        let rawdata = fs.readFileSync(_dir);
-        return JSON.parse(rawdata);
+        let _raw_data = fs.readFileSync(_dir);
+        return JSON.parse(_raw_data);
     }
 
     return read_json_file(_dir);

@@ -25,8 +25,10 @@ async function get_price_list_for_stock(stock_name) {
         body: JSON.stringify(body),
     }).then(async res => {
         const result = await res.json();
-        const obj = {};
-        obj[stockName] = result.results;
+        const obj = {
+            'stock_name' : stockName,
+            'stock_list' : result.results,
+        };
         return obj;
     }).catch(err => {
         throw `${err}`;

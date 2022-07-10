@@ -82,9 +82,6 @@ function get_stock_data(_stock_data, _trading_days_for_the_year, _days_range, _d
      *  takes in the stock data and prepares the data in structure that the ML model can consume the data
      */
 
-
-
-
     const last_index = _stock_data.length - 1;
     const last_index_for_training_dataset = last_index - _trading_days_for_the_year;
     const start_index_for_training_dataset = last_index_for_training_dataset - (_trading_days_for_the_year * _days_range_multiplier);
@@ -185,7 +182,7 @@ const nn_model = (training_data, labelled_data) => tidy(() => {
     return model;
 });
 
-async function train_model(xs, ys, iterations, _model, print_training_log) {
+async function train_model(xs, ys, iterations, _model, print_training_log, company_name) {
     /**
      *
      * used to train the model with the training dataset

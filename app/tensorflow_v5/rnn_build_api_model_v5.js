@@ -5,6 +5,7 @@ import * as fsExtra from "fs-extra";
 /*** variables ***/
 const should_delete_all_existing_files = false;
 const should_rebuild_model = true;
+const should_upload_model = true;
 
 /*** delete all existing files ***/
 async function delete_all_existing_files() {
@@ -40,5 +41,10 @@ if (should_delete_all_existing_files) {
 // 2. rebuild model
 if (should_rebuild_model) {
     build_api_model_v5().then(res => {console.log("--- RE-BUILD MODEL COMPLETED ---")});
+}
+
+// 3. upload model
+if (should_upload_model) {
+
 }
 

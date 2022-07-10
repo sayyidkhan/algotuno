@@ -17,5 +17,8 @@ function get_stock_data_from_fs(_dir) {
     return read_json_file(_dir);
 }
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
-export {get_stock_data_from_fs};
+export {get_stock_data_from_fs, sleep};

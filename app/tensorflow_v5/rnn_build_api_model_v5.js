@@ -2,7 +2,9 @@ import {get_price_list_for_many_stocks, get_stock_list} from "./toolsets/stock_a
 import {run_build_model} from "./rnn_build_model_v5.js";
 
 /*** variables ***/
+const should_rebuild_model = true;
 
+/*** rebuild model function ***/
 async function build_api_model_v5() {
     /*** 1. fetch the list of stock names ***/
     const list_of_stocks = await get_stock_list().then(res => res);
@@ -23,6 +25,7 @@ async function build_api_model_v5() {
 }
 
 
-build_api_model_v5().then(res => {
-    console.log("--- JOB COMPLETED ---");
-});
+if (should_rebuild_model) {
+    build_api_model_v5().then(res => {console.log("--- RE-BUILD MODEL COMPLETED ---")});
+}
+

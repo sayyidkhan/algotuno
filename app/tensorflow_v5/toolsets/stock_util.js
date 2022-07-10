@@ -1,4 +1,5 @@
 import fs from "fs";
+import path from "path";
 
 
 function get_stock_data_from_fs(_dir) {
@@ -17,8 +18,15 @@ function get_stock_data_from_fs(_dir) {
     return read_json_file(_dir);
 }
 
+function get_file_from_fs(_dir) {
+    return fs.createReadStream(_dir);
+}
+
+const getDirectories = srcPath =>
+    fs.readdirSync(srcPath).filter(file => fs.statSync(path.join(srcPath, file)).isDirectory());
+
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-export {get_stock_data_from_fs, sleep};
+export {get_stock_data_from_fs, get_file_from_fs, getDirectories, sleep};

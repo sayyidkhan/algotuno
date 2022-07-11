@@ -75,7 +75,7 @@ function run_build_model(_company_name, _stock_data, _save_dir_name) {
 }
 
 
-if (false) {
+if (true) {
     let extracted_stock_data = get_stock_data_from_fs(stock_data);
     run_build_model(stock_name, extracted_stock_data, _dir_to_save_file);
 }

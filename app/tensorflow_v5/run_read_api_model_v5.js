@@ -10148,10 +10148,14 @@ async function run_api_model(stock_data, _tf_model_dir) {
             let day7 = result.output_ys_list[6]; // day 7
             let day30 = result.output_ys_list[29]; // day 30
             function _convert_array_to_obj(_day_array) {
-                const _obj = {};
-                console.log(_day_array);
+                const _obj = {
+                    "epoch_time" : '',
+                    "price": 0,
+                    "confidence_level": 0,
+                };
                 const epoch_time = _day_array[1].getTime().toString();
-                _obj[epoch_time] = _day_array[0];
+                _obj['epoch_time'] = epoch_time;
+                _obj['price'] = _day_array[0];
                 return _obj;
             }
 

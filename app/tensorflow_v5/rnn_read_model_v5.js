@@ -8,7 +8,7 @@ import {get_model_results, visualiseGraphFromModelResults} from "./toolsets/disp
 /*** variables ***/
 const stock_name = 'aapl';
 const _dir_to_read_file = `file://tf_models/${stock_name}/model.json`;
-const stock_data = './datasets/app_price_latest.json';
+const stock_data = './datasets/aapl_price_latest.json';
 
 const no_of_trading_days_in_a_year = 260; // no of trading days in a year
 const no_of_trading_days_in_a_year_multiplier = 2; // no of years / batches to cover

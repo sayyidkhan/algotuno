@@ -10151,7 +10151,7 @@ async function run_api_model(stock_data, _tf_model_dir) {
                 const _obj = {
                     "epoch_time" : '',
                     "price": 0,
-                    "confidence_level": 0,
+                    "confidence_score": 0,
                 };
                 const epoch_time = _day_array[1].getTime().toString();
                 _obj['epoch_time'] = epoch_time;

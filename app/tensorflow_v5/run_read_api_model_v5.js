@@ -1,6 +1,8 @@
 import {loadLayersModel} from "@tensorflow/tfjs-node";
 import {forecast, get_stock_data, predict} from "./toolsets/core_ai_v5.js";
-
+import {get_price_list_for_stock} from "./toolsets/stock_api.js";
+import {calculate_mape_between_historical_and_forecast_price} from "./toolsets/forecast_probability_util.js";
+import {calculate_mse_between_historical_and_forecast_price} from "./toolsets/mse_util.js";
 
 
 const extracted_stock_data = [
@@ -10090,8 +10092,23 @@ const BASE_URL = "https://algotunowebstorage.blob.core.windows.net/tfmodels/";
 const STOCK_NAME = "aapl";
 const build_path_url = (base_url, ticker_symbol) => `${base_url}${ticker_symbol}/model.json`;
 const GENERATED_PATH_URL = build_path_url(BASE_URL, STOCK_NAME);
+const should_get_data_from_vercel = true;
+const display_in_epoch_time = false;
 
-async function run_api_model(stock_data, _tf_model_dir) {
+async function get_stock_data_from_vercel(_should_get_data, _stock_name) {
+    if (_should_get_data) {
+        return get_price_list_for_stock(_stock_name).then(_result => {
+            return _result.stock_list
+        }).catch(err => {
+            console.log(err);
+            return [];
+        });
+    } else {
+        return extracted_stock_data;
+    }
+}
+
+async function run_api_model(stock_data, _display_in_epoch_time, _tf_model_dir) {
     /**
      * stock_data -> the stock data object in list format
      * model dir -> the url coming from microsoft azure or local storage
@@ -10149,28 +10166,102 @@ async function run_api_model(stock_data, _tf_model_dir) {
             let day30 = result.output_ys_list[29]; // day 30
             function _convert_array_to_obj(_day_array) {
                 const _obj = {
-                    "epoch_time" : '',
+                    "epoch_time": '',
                     "price": 0,
                     "confidence_score": 0,
+                    "rate_of_error": 0,
                 };
-                const epoch_time = _day_array[1].getTime().toString();
+
+                let epoch_time;
+                if (_display_in_epoch_time) {
+                    epoch_time = _day_array[1].getTime().toString();
+                } else {
+                    epoch_time = _day_array[1].toISOString();
+                }
+
                 _obj['epoch_time'] = epoch_time;
                 _obj['price'] = _day_array[0];
                 return _obj;
             }
+
+            const historical_list = stock_dataset.validation.raw_ys_list;
+            const predict_list = validation_data_result;
 
             // obj format
             day1 = _convert_array_to_obj(day1);
             day7 = _convert_array_to_obj(day7);
             day30 = _convert_array_to_obj(day30);
 
-            // 3 days prediction
-            return [day1, day7, day30];
+
+            return {
+                "historical_list": historical_list,
+                "predict_list": predict_list,
+                // (still need to update confidence score because it is 0)
+                "forecast_list": [day1, day7, day30], // 3 days prediction
+            }
+        }).then(_result_entity => {
+            const historical_list = _result_entity.historical_list;
+            const predicted_list = _result_entity.predict_list;
+            const forecast_list = _result_entity.forecast_list;
+            // 4. get the mape score against the testing dataset
+            // get the confidence score
+            const mape_entity = calculate_mape_between_historical_and_forecast_price(
+                historical_list,
+                predicted_list,
+                forecast_list
+            );
+
+            // update confidence score
+            const day1 = forecast_list[0];
+            day1.confidence_score = mape_entity.mape_1;
+            const day7 = forecast_list[1];
+            day7.confidence_score = mape_entity.mape_7;
+            const day30 = forecast_list[2];
+            day30.confidence_score = mape_entity.mape_30;
+
+            return {
+                "historical_list": historical_list,
+                "predict_list": predicted_list,
+                // (still need to update loss function because it is 0)
+                "forecast_list": forecast_list, // 3 days prediction
+            }
+        }).then(_result_entity => {
+            const historical_list = _result_entity.historical_list;
+            const predicted_list = _result_entity.predict_list;
+            const forecast_list = _result_entity.forecast_list;
+            // 4. get the mape score against the testing dataset
+            // get the confidence score
+            const mse_entity = calculate_mse_between_historical_and_forecast_price(
+                historical_list,
+                predicted_list,
+                forecast_list
+            );
+
+            console.log(mse_entity);
+
+            // update confidence score
+            const day1 = forecast_list[0];
+            day1.rate_of_error = mse_entity.mse_1;
+            const day7 = forecast_list[1];
+            day7.rate_of_error = mse_entity.mse_7;
+            const day30 = forecast_list[2];
+            day30.rate_of_error = mse_entity.mse_30;
+
+            return forecast_list;
         });
 
+
+    console.log(predict_result);
     return predict_result;
 }
 
-run_api_model(extracted_stock_data, GENERATED_PATH_URL).then(r => {
-    console.log(r);
+/* 1. get the stock price list from either local / cloud */
+get_stock_data_from_vercel(should_get_data_from_vercel, STOCK_NAME).then(stock_price_list => {
+    // console.log(stock_price_list);
+
+    /* 2. run the api model against the pre-build model and latest price */
+    run_api_model(stock_price_list, display_in_epoch_time, GENERATED_PATH_URL).then(r => {
+        console.log(r);
+    });
 });
+

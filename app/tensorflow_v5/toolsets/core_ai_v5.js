@@ -223,7 +223,9 @@ async function predict(_model, _training_data, _labelled_data) {
 
 async function predict_type2(_model, _training_data, _labelled_data) {
     const _prediction = await _model.predict(_training_data);
-    let _predict = _prediction.arraySync().map(x => x[0]);
+    let _predict = _prediction.arraySync().map(x => {
+        return x[0];
+    });
 
     const latest_price = _predict.slice(-1)[0];
     const latest_date = _labelled_data[1];

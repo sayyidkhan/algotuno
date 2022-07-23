@@ -10,6 +10,7 @@ async function get_stock_list() {
     });
 }
 
+/* this api gets all the stock price list stored in the server */
 async function get_price_list_for_stock(stock_name) {
     let stockName = stock_name.toUpperCase();
     const body = {
@@ -35,6 +36,7 @@ async function get_price_list_for_stock(stock_name) {
     });
 }
 
+/* this api calls the function `get_price_list_for_stock` many times in order to achieve its goal  */
 async function get_price_list_for_many_stocks(_list_of_stocks) {
     let result_list = [];
     for (const stock_name of _list_of_stocks) {

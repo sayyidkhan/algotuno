@@ -1,5 +1,3 @@
-import {rebase_to_one} from "./forecast_probability_util.js";
-
 function mse(predict, actual) {
     let error = 0;
     for (let i = 0; i < predict.length; i++) {

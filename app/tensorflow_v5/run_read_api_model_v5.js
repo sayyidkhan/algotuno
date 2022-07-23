@@ -10251,7 +10251,7 @@ async function run_api_model(stock_data, _display_in_epoch_time, _tf_model_dir) 
         });
 
 
-    console.log(predict_result);
+    // console.log(predict_result);
     return predict_result;
 }
 
